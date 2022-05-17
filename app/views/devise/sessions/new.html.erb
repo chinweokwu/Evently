@@ -1,0 +1,46 @@
+<div class="container mx-auto">
+  <div class="flex justify-center px-6 my-12">
+
+    <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+
+      <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+        style="background-image: url('https://images.unsplash.com/photo-1579125305607-15279d30d370?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80')">
+      </div>
+
+      <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+        <div class="px-8 mb-4 text-center">
+          <h3 class="pt-4 mb-2 text-2xl">Log In</h3>
+        </div>
+        <div class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages" , resource: resource %>
+
+              <div class="mb-4">
+                <%= f.label :email, class:"block mb-2 text-sm font-bold text-gray-700" %>
+                  <%= f.email_field :email, class:"w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded
+                    shadow appearance-none focus:outline-none focus:shadow-outline", autofocus: true,
+                    placeholder: "Enter Email Address..." , autocomplete: "email" %>
+              </div>
+
+              <div class="mb-4">
+                <%= f.label :password, class:"block mb-2 text-sm font-bold text-gray-700" %>
+                  <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                      <%= f.password_field :password, placeholder: "password" , class:"w-full px-3 py-2 text-sm
+                        leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none
+                        focus:shadow-outline" %>
+              </div>
+              <div class="mb-6 text-center">
+                <%= f.submit "Log in" ,
+                  class: "w-full px-4 py-2 font-bold text-white bg-indigo-500 rounded-full hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
+                  %>
+              </div>
+              <% end %>
+                <hr class="mb-6 border-t" />
+                <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<header class="h-24 sm:h-32 flex items-center">
+  <div class="container mx-auto pl-8 flex items-center justify-between">
+    <div class="uppercase text-blue-700 flex flex-col items-center">
+      <div class="text-2xl">Event<strong class="font-bold">Booking</strong></div>
+      <small class="tracking-widest">Evently</small>
+    </div>
+    <div class="flex items-center">
+      <nav class="text-gray-900 tracking-widest text-sm font-bold lg:flex items-center hidden uppercase">
+        <% if user_signed_in? %>
+          <%= link_to 'Home', root_path, class:"py-2 px-8 hover:underline" %>
+          <%= link_to "Hi, #{current_user.email}" , edit_user_registration_path, class:"py-2 px-8 hover:underline" %>
+          <%= link_to 'Sign Out' , destroy_user_session_path, method: :delete, class:"py-2 px-8 hover:underline" %>
+        <% else %>
+          <%= link_to 'Home' , root_path, class:"py-2 px-8 hover:underline" %>
+          <%= link_to 'Sign In' , new_user_session_path, class:"py-2 px-8 hover:underline" %>
+          <%= link_to 'Sign Up' , new_user_registration_path, class:"py-2 px-8 hover:underline" %>
+        <% end %>
+      </nav>
+      <button class="ml-4 w-6 h-6 flex flex-col lg:hidden mr-8">
+        <span class="w-6 h-px bg-gray-900 mb-1 rounded"></span>
+        <span class="w-6 h-px bg-gray-900 mb-1 rounded"></span>
+        <span class="w-6 h-px bg-gray-900 mb-1 rounded"></span>
+      </button>
+    </div>
+  </div>
+</header>
